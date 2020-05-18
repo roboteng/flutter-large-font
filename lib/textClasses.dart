@@ -2,7 +2,10 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-
+// min and max are asymptotes, so they should be set lower and higher than expected values (expect values might be 10, 60)
+// offset is the value given by the system font size (expected value might be 0 or 1.2)
+// original is the font specified by the design system (expected value might be 12 or 28)
+// returned value is the new font size. For positive offset, this will be a bigger font
 double scale(min, max, offset, original) {
   return sigmoid(min, max, invSig(min, max, original) + offset);
 }
